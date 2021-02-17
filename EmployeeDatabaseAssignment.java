@@ -30,10 +30,14 @@
  			case 2: display(); break;
  			case 3: update(); break;
  			case 4: delete(); break;
- 			case 5: Collections.sort((set), new SortByFirstName());display(); break;
+ 			case 5: Collections.sort(set, new SortByFirstName()); display(); break;
  			case 6: Collections.sort(set, new SortByLastName()); display(); break;
  			case 7: Collections.sort(set, new SortByAddress());display(); break;
- 			case 8: Collections.sort(set, new SortByCode()); display(); break;
+ 			case 8: //Collections.sort(set, new SortByCode()); display(); break;
+ 					// Comparator<EmployeeData> comp=(ref, secondRef) -> {return ref.getCode().compareTo(secondRef.getCode());};
+ 					// Collections.sort(set, comp); display() ; break;
+ 					Collections.sort(set, ((EmployeeData ref, EmployeeData secondRef) -> {return ref.getCode().compareTo(secondRef.getCode());})); display() ; break; 
+ 					//For the above code dont write comparator in this method but we have to write the class type for sure.
  			case 9:  System.exit(0);	
 
  		}
